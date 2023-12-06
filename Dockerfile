@@ -8,6 +8,6 @@ FROM quay.io/vexxhost/bindep-loci:latest AS bindep
 FROM ${BUILDER_IMAGE}:a94f2ff68ac92d911ef97e9037cd437432277719 AS builder
 COPY --from=bindep --link /runtime-pip-packages /runtime-pip-packages
 
-FROM ${RUNTIME_IMAGE}:a391e31bb33041611e2aa2797debcb21e6f221cd AS runtime
+FROM ${RUNTIME_IMAGE}:9080bbaebe90d82e96c57144afc0aaeb33a9180b AS runtime
 COPY --from=bindep --link /runtime-dist-packages /runtime-dist-packages
 COPY --from=builder --link /var/lib/openstack /var/lib/openstack
